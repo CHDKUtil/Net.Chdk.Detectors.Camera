@@ -1,4 +1,5 @@
-﻿using Net.Chdk.Model.Camera;
+﻿using Microsoft.Extensions.Logging;
+using Net.Chdk.Model.Camera;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -14,6 +15,8 @@ namespace Net.Chdk.Detectors.Camera
                 WriteUsage();
                 return;
             }
+
+            var loggerFactory = new LoggerFactory();
 
             string inputPath = null;
             string outputPath = null;
@@ -44,7 +47,7 @@ namespace Net.Chdk.Detectors.Camera
             }
             try
             {
-                var cameraInfo = GetCamera(inputPath);
+                var cameraInfo = GetCamera(inputPath, loggerFactory);
                 cameraInfo.Version = "1.0";
                 Serialize(outputPath, cameraInfo, settings);
             }
@@ -54,9 +57,9 @@ namespace Net.Chdk.Detectors.Camera
             }
         }
 
-        private static CameraInfo GetCamera(string path)
+        private static CameraInfo GetCamera(string path, ILoggerFactory loggerFactory)
         {
-            var detector = new FileCameraDetector();
+            var detector = new FileCameraDetector(loggerFactory);
             return detector.GetCamera(path);
         }
 

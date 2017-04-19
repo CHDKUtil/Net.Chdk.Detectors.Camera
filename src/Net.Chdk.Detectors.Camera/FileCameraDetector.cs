@@ -1,6 +1,7 @@
 ﻿using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
 using MetadataExtractor.Formats.Exif.Makernotes;
+using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
 using System.Collections.Generic;
 using System.IO;
@@ -12,8 +13,17 @@ namespace Net.Chdk.Detectors.Camera
     {
         private static string Version => "1.0";
 
+        private ILogger Logger { get; }
+
+        public FileCameraDetector(ILoggerFactory loggerFactory)
+        {
+            Logger = loggerFactory.CreateLogger<FileCameraDetector>();
+        }
+
         public CameraInfo GetCamera(Stream stream)
         {
+            Logger.LogInformation("Reading {0}", stream);
+
             var metadata = ImageMetadataReader.ReadMetadata(stream);
             if (metadata.Count == 0)
                 return null;

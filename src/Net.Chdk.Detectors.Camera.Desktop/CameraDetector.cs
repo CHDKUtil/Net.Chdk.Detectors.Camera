@@ -1,4 +1,5 @@
-﻿using Net.Chdk.Model.Camera;
+﻿using Microsoft.Extensions.Logging;
+using Net.Chdk.Model.Camera;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,18 +7,20 @@ namespace Net.Chdk.Detectors.Camera
 {
     public sealed class CameraDetector : ICameraDetector
     {
+        private ILoggerFactory LoggerFactory { get; }
         private IEnumerable<ICameraDetector> CameraDetectors { get; }
 
-        public CameraDetector()
-            : this(new FileCameraDetector())
+        public CameraDetector(ILoggerFactory loggerFactory)
+            : this(new FileCameraDetector(loggerFactory), loggerFactory)
         {
         }
 
-        public CameraDetector(FileCameraDetector fileCameraDetector)
+        public CameraDetector(FileCameraDetector fileCameraDetector, ILoggerFactory loggerFactory)
         {
+            LoggerFactory = loggerFactory;
             CameraDetectors = new ICameraDetector[]
             {
-                new MetadataCameraDetector(),
+                new MetadataCameraDetector(LoggerFactory),
                 new FileSystemCameraDetector(fileCameraDetector)
             };
         }
