@@ -11,9 +11,12 @@ namespace Net.Chdk.Detectors.Camera
 {
     public sealed class CameraDetector
     {
+        private static readonly string[] Patterns = new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
+
         public CameraInfo GetCamera(string driveLetter)
         {
-            return GetCameraFromMetadata(driveLetter);
+            return GetCameraFromMetadata(driveLetter)
+                ?? GetCameraFromFileSystem(driveLetter);
         }
 
         public CameraInfo GetCamera(Stream stream)
@@ -24,6 +27,7 @@ namespace Net.Chdk.Detectors.Camera
 
             return new CameraInfo
             {
+                Version = GetVersion(),
                 Base = GetBase(metadata),
                 Canon = GetCanon(metadata),
             };
@@ -40,6 +44,11 @@ namespace Net.Chdk.Detectors.Camera
             {
                 return JsonObject.Deserialize<CameraInfo>(stream);
             }
+        }
+
+        private string GetVersion()
+        {
+            return "1.0";
         }
 
         private BaseInfo GetBase(IReadOnlyList<Directory> metadata)
@@ -66,6 +75,38 @@ namespace Net.Chdk.Detectors.Camera
                 ModelId = canon.GetUInt32(CanonMakernoteDirectory.TagModelId),
                 FirmwareRevision = canon.GetUInt32(CanonMakernoteDirectory.TagFirmwareRevision)
             };
+        }
+
+        private CameraInfo GetCameraFromFileSystem(string driveLetter)
+        {
+            var path = Path.Combine(driveLetter, "DCIM");
+            if (!System.IO.Directory.Exists(path))
+                return null;
+            return System.IO.Directory.EnumerateDirectories(path)
+                .Select(GetCameraFromDirectory)
+                .FirstOrDefault(c => c != null);
+        }
+
+        private CameraInfo GetCameraFromDirectory(string dir)
+        {
+            return Patterns
+                .Select(p => GetCameraFromDirectory(dir, p))
+                .FirstOrDefault(c => c != null);
+        }
+
+        private CameraInfo GetCameraFromDirectory(string dir, string pattern)
+        {
+            return System.IO.Directory.EnumerateFiles(dir, pattern)
+                .Select(GetCameraFromFile)
+                .FirstOrDefault(c => c != null);
+        }
+
+        private CameraInfo GetCameraFromFile(string file)
+        {
+            using (var stream = File.OpenRead(file))
+            {
+                return GetCamera(stream);
+            }
         }
     }
 }
