@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Net.Chdk.Core\src\Net.Chdk.Core\Net.Chdk.Core.csproj">
+      <Project>{6C183A9C-30C1-47E5-9016-48890EC8ABA2}</Project>
+      <Name>Net.Chdk.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Net.Chdk.Model.Camera\src\Net.Chdk.Model.Camera\Net.Chdk.Model.Camera.csproj">
       <Project>{66B0906B-FF63-4CFC-8EA7-A472333AECB1}</Project>
       <Name>Net.Chdk.Model.Camera</Name>

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.Desktop", "..\Net.Chdk.Detectors.Camera.Desktop\Net.Chdk.Detectors.Camera.Desktop.csproj", "{06314AB6-5A42-4883-9F5D-F76AC49DA680}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Core", "..\..\..\Net.Chdk.Core\src\Net.Chdk.Core\Net.Chdk.Core.csproj", "{6C183A9C-30C1-47E5-9016-48890EC8ABA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
