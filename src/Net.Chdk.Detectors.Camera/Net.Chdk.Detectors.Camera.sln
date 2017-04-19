@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera", "Net.Chdk.Detectors.Camera.csproj", "{76C565FE-FE22-4830-B63D-C80D4EA9F01E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Model.Camera", "..\..\..\Net.Chdk.Model.Camera\src\Net.Chdk.Model.Camera\Net.Chdk.Model.Camera.csproj", "{66B0906B-FF63-4CFC-8EA7-A472333AECB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.Console", "..\Net.Chdk.Detectors.Camera.Console\Net.Chdk.Detectors.Camera.Console.csproj", "{75EC230E-0B1F-462D-80C6-F1B0B578521C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.Desktop", "..\Net.Chdk.Detectors.Camera.Desktop\Net.Chdk.Detectors.Camera.Desktop.csproj", "{06314AB6-5A42-4883-9F5D-F76AC49DA680}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{75EC230E-0B1F-462D-80C6-F1B0B578521C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75EC230E-0B1F-462D-80C6-F1B0B578521C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75EC230E-0B1F-462D-80C6-F1B0B578521C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06314AB6-5A42-4883-9F5D-F76AC49DA680}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
