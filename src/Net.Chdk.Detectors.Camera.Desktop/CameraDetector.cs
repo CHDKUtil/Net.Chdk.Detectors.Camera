@@ -25,7 +25,7 @@ namespace Net.Chdk.Detectors.Camera
         public CameraInfo GetCamera(string driveLetter)
         {
             return CameraDetectors
-                .Select(d => GetCamera(driveLetter))
+                .Select(d => d.GetCamera(driveLetter))
                 .FirstOrDefault(c => c != null);
         }
     }
