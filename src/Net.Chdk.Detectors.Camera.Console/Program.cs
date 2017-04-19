@@ -56,7 +56,7 @@ namespace Net.Chdk.Detectors.Camera
 
         private static CameraInfo GetCamera(string path)
         {
-            var detector = new CameraDetector();
+            var detector = new FileCameraDetector();
             using (var stream = File.OpenRead(path))
             {
                 return detector.GetCamera(stream);

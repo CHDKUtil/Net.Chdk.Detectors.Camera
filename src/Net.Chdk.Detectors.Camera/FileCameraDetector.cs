@@ -8,8 +8,10 @@ using System.Linq;
 
 namespace Net.Chdk.Detectors.Camera
 {
-    public sealed class CameraDetector
+    public sealed class FileCameraDetector
     {
+        private static string Version => "1.0";
+
         public CameraInfo GetCamera(Stream stream)
         {
             var metadata = ImageMetadataReader.ReadMetadata(stream);
@@ -18,6 +20,7 @@ namespace Net.Chdk.Detectors.Camera
 
             return new CameraInfo
             {
+                Version = Version,
                 Base = GetBase(metadata),
                 Canon = GetCanon(metadata),
             };

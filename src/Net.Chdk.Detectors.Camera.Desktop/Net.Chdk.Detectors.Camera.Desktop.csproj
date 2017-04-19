@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CameraDetector.cs" />
+    <Compile Include="FileCameraDetector.cs" />
+    <Compile Include="FileSystemCameraDetector.cs" />
+    <Compile Include="ICameraDetector.cs" />
+    <Compile Include="MetadataCameraDetector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
