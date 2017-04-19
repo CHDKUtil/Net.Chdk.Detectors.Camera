@@ -58,9 +58,9 @@
       <Project>{66b0906b-ff63-4cfc-8ea7-a472333aecb1}</Project>
       <Name>Net.Chdk.Model.Camera</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Net.Chdk.Detectors.Camera\Net.Chdk.Detectors.Camera.csproj">
-      <Project>{76c565fe-fe22-4830-b63d-c80d4ea9f01e}</Project>
-      <Name>Net.Chdk.Detectors.Camera</Name>
+    <ProjectReference Include="..\Net.Chdk.Detectors.Camera.Desktop\Net.Chdk.Detectors.Camera.Desktop.csproj">
+      <Project>{06314ab6-5a42-4883-9f5d-f76ac49da680}</Project>
+      <Name>Net.Chdk.Detectors.Camera.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

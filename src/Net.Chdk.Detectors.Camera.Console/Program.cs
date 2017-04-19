@@ -57,10 +57,7 @@ namespace Net.Chdk.Detectors.Camera
         private static CameraInfo GetCamera(string path)
         {
             var detector = new FileCameraDetector();
-            using (var stream = File.OpenRead(path))
-            {
-                return detector.GetCamera(stream);
-            }
+            return detector.GetCamera(path);
         }
 
         private static void Serialize(string path, CameraInfo cameraInfo, JsonSerializerSettings settings)
