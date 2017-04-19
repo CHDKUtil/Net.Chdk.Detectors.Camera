@@ -10,7 +10,7 @@ namespace Net.Chdk.Detectors.Camera
 {
     public sealed class CameraDetector
     {
-        private CameraInfo GetCamera(Stream stream)
+        public CameraInfo GetCamera(Stream stream)
         {
             var metadata = ImageMetadataReader.ReadMetadata(stream);
             if (metadata.Count == 0)
