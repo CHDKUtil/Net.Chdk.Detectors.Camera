@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera", "Net.Chdk.Detectors.Camera.csproj", "{76C565FE-FE22-4830-B63D-C80D4EA9F01E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Model.Camera", "..\..\..\Net.Chdk.Model.Camera\src\Net.Chdk.Model.Camera\Net.Chdk.Model.Camera.csproj", "{66B0906B-FF63-4CFC-8EA7-A472333AECB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.Console", "..\Net.Chdk.Detectors.Camera.Console\Net.Chdk.Detectors.Camera.Console.csproj", "{75EC230E-0B1F-462D-80C6-F1B0B578521C}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{76C565FE-FE22-4830-B63D-C80D4EA9F01E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76C565FE-FE22-4830-B63D-C80D4EA9F01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76C565FE-FE22-4830-B63D-C80D4EA9F01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76C565FE-FE22-4830-B63D-C80D4EA9F01E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66B0906B-FF63-4CFC-8EA7-A472333AECB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66B0906B-FF63-4CFC-8EA7-A472333AECB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66B0906B-FF63-4CFC-8EA7-A472333AECB1}.Release|Any CPU.ActiveCfg = Release|Any CPU

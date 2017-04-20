@@ -3,9 +3,14 @@ using MetadataExtractor.Formats.Exif;
 using MetadataExtractor.Formats.Exif.Makernotes;
 using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Directory = MetadataExtractor.Directory;
+
+#if PCL
+using MetadataCollection = System.Collections.Generic.IList<MetadataExtractor.Directory>;
+#else
+using MetadataCollection = System.Collections.Generic.IReadOnlyList<MetadataExtractor.Directory>;
+#endif
 
 namespace Net.Chdk.Detectors.Camera
 {
@@ -20,11 +25,21 @@ namespace Net.Chdk.Detectors.Camera
             Logger = loggerFactory.CreateLogger<FileCameraDetector>();
         }
 
+#if !PCL
         public CameraInfo GetCamera(string filePath)
         {
-            Logger.LogInformation("Reading {0}", filePath);
+            using (var stream = File.OpenRead(filePath))
+            {
+                return GetCamera(stream);
+            }
+        }
+#endif
 
-            var metadata = ImageMetadataReader.ReadMetadata(filePath);
+        public CameraInfo GetCamera(Stream stream)
+        {
+            Logger.LogInformation("Reading {0}", stream);
+
+            var metadata = ImageMetadataReader.ReadMetadata(stream);
             if (metadata.Count == 0)
                 return null;
 
@@ -36,7 +51,7 @@ namespace Net.Chdk.Detectors.Camera
             };
         }
 
-        private BaseInfo GetBase(IReadOnlyList<Directory> metadata)
+        private BaseInfo GetBase(MetadataCollection metadata)
         {
             var ifd0 = metadata.OfType<ExifIfd0Directory>().SingleOrDefault();
             if (ifd0 == null)
@@ -49,7 +64,7 @@ namespace Net.Chdk.Detectors.Camera
             };
         }
 
-        private CanonInfo GetCanon(IReadOnlyList<Directory> metadata)
+        private CanonInfo GetCanon(MetadataCollection metadata)
         {
             var canon = metadata.OfType<CanonMakernoteDirectory>().SingleOrDefault();
             if (canon == null)
