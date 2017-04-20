@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
 
@@ -20,7 +21,10 @@ namespace Net.Chdk.Detectors.Camera
 
             string inputPath = null;
             string outputPath = null;
-            JsonSerializerSettings settings = new JsonSerializerSettings();
+            JsonSerializerSettings settings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
             for (int i = 0; i < args.Length; i++)
             {
                 switch (args[i])
