@@ -91,6 +91,10 @@
       <Project>{66B0906B-FF63-4CFC-8EA7-A472333AECB1}</Project>
       <Name>Net.Chdk.Model.Camera</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Net.Chdk.Model.Card\src\Net.Chdk.Model.Card\Net.Chdk.Model.Card.csproj">
+      <Project>{A41D61FE-2FB8-4892-AC7D-ECEE7E61C637}</Project>
+      <Name>Net.Chdk.Model.Card</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
+using Net.Chdk.Model.Card;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,10 +26,10 @@ namespace Net.Chdk.Detectors.Camera
             };
         }
 
-        public CameraInfo GetCamera(string driveLetter)
+        public CameraInfo GetCamera(CardInfo cardInfo)
         {
             return CameraDetectors
-                .Select(d => d.GetCamera(driveLetter))
+                .Select(d => d.GetCamera(cardInfo))
                 .FirstOrDefault(c => c != null);
         }
     }

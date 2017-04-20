@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
+using Net.Chdk.Model.Card;
 
 namespace Net.Chdk.Detectors.Camera
 {
@@ -10,9 +11,9 @@ namespace Net.Chdk.Detectors.Camera
         {
         }
 
-        public CameraInfo GetCamera(string driveLetter)
+        public CameraInfo GetCamera(CardInfo cardInfo)
         {
-            return GetValue(driveLetter);
+            return GetValue(cardInfo.DriveLetter);
         }
 
         protected override string FileName => "CAMERA.JSN";

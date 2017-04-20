@@ -1,4 +1,5 @@
 ﻿using Net.Chdk.Model.Camera;
+using Net.Chdk.Model.Card;
 using System.IO;
 using System.Linq;
 
@@ -15,9 +16,9 @@ namespace Net.Chdk.Detectors.Camera
             FileCameraDetector = fileCameraDetector;
         }
 
-        public CameraInfo GetCamera(string driveLetter)
+        public CameraInfo GetCamera(CardInfo cardInfo)
         {
-            var path = Path.Combine(driveLetter, "DCIM");
+            var path = Path.Combine(cardInfo.DriveLetter, "DCIM");
             if (!Directory.Exists(path))
                 return null;
 
