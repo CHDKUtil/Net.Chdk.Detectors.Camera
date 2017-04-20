@@ -80,6 +80,10 @@
       <Project>{6C183A9C-30C1-47E5-9016-48890EC8ABA2}</Project>
       <Name>Net.Chdk.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Net.Chdk.Detectors.Core\src\Net.Chdk.Detectors.Core\Net.Chdk.Detectors.Core.csproj">
+      <Project>{B5899F00-8BD7-4776-A677-86177A796146}</Project>
+      <Name>Net.Chdk.Detectors.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Net.Chdk.Model.Camera\src\Net.Chdk.Model.Camera\Net.Chdk.Model.Camera.csproj">
       <Project>{66B0906B-FF63-4CFC-8EA7-A472333AECB1}</Project>
       <Name>Net.Chdk.Model.Camera</Name>
