@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Net.Chdk.Detectors.Camera
 {
-    sealed class FileSystemCameraDetector : ICameraDetector
+    public sealed class FileSystemCameraDetector : ICameraDetector
     {
-        private static readonly string[] Patterns = new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
+        public static string[] Patterns => new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
 
         private FileCameraDetector FileCameraDetector { get; }
 
