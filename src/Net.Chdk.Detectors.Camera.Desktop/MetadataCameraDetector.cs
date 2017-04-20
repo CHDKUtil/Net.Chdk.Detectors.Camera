@@ -13,7 +13,7 @@ namespace Net.Chdk.Detectors.Camera
 
         public CameraInfo GetCamera(CardInfo cardInfo)
         {
-            return GetValue(cardInfo.DriveLetter);
+            return GetValue(cardInfo);
         }
 
         protected override string FileName => "CAMERA.JSN";
