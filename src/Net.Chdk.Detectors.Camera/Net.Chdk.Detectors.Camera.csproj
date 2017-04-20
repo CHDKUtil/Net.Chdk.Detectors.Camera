@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Net.Chdk.Detectors.Camera</RootNamespace>
-    <AssemblyName>Net.Chdk.Detectors.Camera.Desktop</AssemblyName>
+    <AssemblyName>Net.Chdk.Detectors.Camera</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

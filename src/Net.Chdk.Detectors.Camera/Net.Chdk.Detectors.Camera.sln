@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Model.Camera", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.Console", "..\Net.Chdk.Detectors.Camera.Console\Net.Chdk.Detectors.Camera.Console.csproj", "{75EC230E-0B1F-462D-80C6-F1B0B578521C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera.Desktop", "..\Net.Chdk.Detectors.Camera.Desktop\Net.Chdk.Detectors.Camera.Desktop.csproj", "{06314AB6-5A42-4883-9F5D-F76AC49DA680}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Detectors.Camera", "..\Net.Chdk.Detectors.Camera\Net.Chdk.Detectors.Camera.csproj", "{06314AB6-5A42-4883-9F5D-F76AC49DA680}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Core", "..\..\..\Net.Chdk.Core\src\Net.Chdk.Core\Net.Chdk.Core.csproj", "{6C183A9C-30C1-47E5-9016-48890EC8ABA2}"
 EndProject
