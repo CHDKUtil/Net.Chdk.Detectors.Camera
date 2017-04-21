@@ -28,6 +28,8 @@ namespace Net.Chdk.Detectors.Camera
 #if !PCL
         public CameraInfo GetCamera(string filePath)
         {
+            Logger.LogInformation("Reading {0}", filePath);
+
             using (var stream = File.OpenRead(filePath))
             {
                 return GetCamera(stream);
@@ -37,8 +39,6 @@ namespace Net.Chdk.Detectors.Camera
 
         public CameraInfo GetCamera(Stream stream)
         {
-            Logger.LogInformation("Reading {0}", stream);
-
             var metadata = ImageMetadataReader.ReadMetadata(stream);
             if (metadata.Count == 0)
                 return null;
