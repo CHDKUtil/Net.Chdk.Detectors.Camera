@@ -11,12 +11,7 @@ namespace Net.Chdk.Detectors.Camera
         private ILoggerFactory LoggerFactory { get; }
         private IEnumerable<ICameraDetector> CameraDetectors { get; }
 
-        public CameraDetector(ILoggerFactory loggerFactory)
-            : this(new FileCameraDetector(loggerFactory), loggerFactory)
-        {
-        }
-
-        public CameraDetector(FileCameraDetector fileCameraDetector, ILoggerFactory loggerFactory)
+        public CameraDetector(IFileCameraDetector fileCameraDetector, ILoggerFactory loggerFactory)
         {
             LoggerFactory = loggerFactory;
             CameraDetectors = new ICameraDetector[]

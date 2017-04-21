@@ -14,7 +14,7 @@ using MetadataCollection = System.Collections.Generic.IReadOnlyList<MetadataExtr
 
 namespace Net.Chdk.Detectors.Camera
 {
-    public sealed class FileCameraDetector
+    public sealed class FileCameraDetector : IFileCameraDetector
     {
         private static string Version => "1.0";
 

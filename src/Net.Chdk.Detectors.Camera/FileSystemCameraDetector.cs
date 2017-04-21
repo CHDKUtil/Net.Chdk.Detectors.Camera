@@ -9,9 +9,9 @@ namespace Net.Chdk.Detectors.Camera
     {
         public static string[] Patterns => new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
 
-        private FileCameraDetector FileCameraDetector { get; }
+        private IFileCameraDetector FileCameraDetector { get; }
 
-        public FileSystemCameraDetector(FileCameraDetector fileCameraDetector)
+        public FileSystemCameraDetector(IFileCameraDetector fileCameraDetector)
         {
             FileCameraDetector = fileCameraDetector;
         }
