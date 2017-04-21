@@ -18,7 +18,8 @@ namespace Net.Chdk.Detectors.Camera
 
         public CameraInfo GetCamera(CardInfo cardInfo)
         {
-            var path = Path.Combine(cardInfo.DriveLetter, "DCIM");
+            var rootPath = cardInfo.GetRootPath();
+            var path = Path.Combine(rootPath, "DCIM");
             if (!Directory.Exists(path))
                 return null;
 
