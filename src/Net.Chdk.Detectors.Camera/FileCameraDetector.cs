@@ -39,16 +39,24 @@ namespace Net.Chdk.Detectors.Camera
 
         public CameraInfo GetCamera(Stream stream)
         {
-            var metadata = ImageMetadataReader.ReadMetadata(stream);
-            if (metadata.Count == 0)
-                return null;
-
-            return new CameraInfo
+            try
             {
-                Version = Version,
-                Base = GetBase(metadata),
-                Canon = GetCanon(metadata),
-            };
+                var metadata = ImageMetadataReader.ReadMetadata(stream);
+                if (metadata.Count == 0)
+                    return null;
+
+                return new CameraInfo
+                {
+                    Version = Version,
+                    Base = GetBase(metadata),
+                    Canon = GetCanon(metadata),
+                };
+            }
+            catch (MetadataException ex)
+            {
+                Logger.LogError(0, ex, "Error reading metadata");
+                throw;
+            }
         }
 
         private BaseInfo GetBase(MetadataCollection metadata)
