@@ -40,6 +40,9 @@
       <HintPath>..\Net.Chdk.Detectors.Camera\packages\MetadataExtractor.1.5.3\lib\net45\MetadataExtractor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\Net.Chdk.Detectors.Camera\packages\Microsoft.Extensions.Logging.Abstractions.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
       <Private>True</Private>
@@ -68,8 +71,10 @@
     <Compile Include="CameraDetector.cs" />
     <Compile Include="FileCameraDetector.cs" />
     <Compile Include="FileSystemCameraDetector.cs" />
+    <Compile Include="IInnerCameraDetector.cs" />
     <Compile Include="MetadataCameraDetector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceCollectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

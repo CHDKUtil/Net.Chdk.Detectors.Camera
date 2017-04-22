@@ -9,16 +9,12 @@ namespace Net.Chdk.Detectors.Camera
     public sealed class CameraDetector : ICameraDetector
     {
         private ILoggerFactory LoggerFactory { get; }
-        private IEnumerable<ICameraDetector> CameraDetectors { get; }
+        private IEnumerable<IInnerCameraDetector> CameraDetectors { get; }
 
-        public CameraDetector(IFileCameraDetector fileCameraDetector, ILoggerFactory loggerFactory)
+        public CameraDetector(IEnumerable<IInnerCameraDetector> cameraDetectors, IFileCameraDetector fileCameraDetector, ILoggerFactory loggerFactory)
         {
             LoggerFactory = loggerFactory;
-            CameraDetectors = new ICameraDetector[]
-            {
-                new MetadataCameraDetector(LoggerFactory),
-                new FileSystemCameraDetector(fileCameraDetector)
-            };
+            CameraDetectors = cameraDetectors;
         }
 
         public CameraInfo GetCamera(CardInfo cardInfo)

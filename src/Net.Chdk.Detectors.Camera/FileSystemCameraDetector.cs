@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Net.Chdk.Detectors.Camera
 {
-    public sealed class FileSystemCameraDetector : ICameraDetector
+    public sealed class FileSystemCameraDetector : IInnerCameraDetector
     {
         public static string[] Patterns => new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
 
