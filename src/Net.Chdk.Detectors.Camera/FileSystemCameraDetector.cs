@@ -1,4 +1,5 @@
-﻿using Net.Chdk.Model.Camera;
+﻿using Microsoft.Extensions.Logging;
+using Net.Chdk.Model.Camera;
 using Net.Chdk.Model.Card;
 using System.IO;
 using System.Linq;
@@ -9,15 +10,19 @@ namespace Net.Chdk.Detectors.Camera
     {
         public static string[] Patterns => new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
 
+        private ILogger Logger { get; }
         private IFileCameraDetector FileCameraDetector { get; }
 
-        public FileSystemCameraDetector(IFileCameraDetector fileCameraDetector)
+        public FileSystemCameraDetector(IFileCameraDetector fileCameraDetector, ILoggerFactory loggerFactory)
         {
+            Logger = loggerFactory.CreateLogger<FileSystemCameraDetector>();
             FileCameraDetector = fileCameraDetector;
         }
 
         public CameraInfo GetCamera(CardInfo cardInfo)
         {
+            Logger.LogTrace("Detecting camera from {0} file system", cardInfo.DriveLetter);
+
             string path = cardInfo.GetDcimPath();
             if (!Directory.Exists(path))
                 return null;

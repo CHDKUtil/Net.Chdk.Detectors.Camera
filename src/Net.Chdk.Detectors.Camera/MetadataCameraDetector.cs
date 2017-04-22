@@ -13,6 +13,8 @@ namespace Net.Chdk.Detectors.Camera
 
         public CameraInfo GetCamera(CardInfo cardInfo)
         {
+            Logger.LogTrace("Detecting camera from {0} metadata", cardInfo.DriveLetter);
+
             return GetValue(cardInfo);
         }
 
