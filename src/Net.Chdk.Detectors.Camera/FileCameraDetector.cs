@@ -3,6 +3,7 @@ using MetadataExtractor.Formats.Exif;
 using MetadataExtractor.Formats.Exif.Makernotes;
 using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
+using System;
 using System.IO;
 using System.Linq;
 
@@ -16,7 +17,7 @@ namespace Net.Chdk.Detectors.Camera
 {
     public sealed class FileCameraDetector : IFileCameraDetector
     {
-        private static string Version => "1.0";
+        private static Version Version => new Version("1.0");
 
         private ILogger Logger { get; }
 
