@@ -19,6 +19,6 @@ namespace Net.Chdk.Detectors.Camera
             return GetValue(cardInfo);
         }
 
-        protected override string FileName => "CAMERA.JSN";
+        protected override string FileName => Files.Metadata.Camera;
     }
 }
