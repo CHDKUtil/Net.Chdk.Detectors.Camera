@@ -23,7 +23,8 @@ namespace Net.Chdk.Detectors.Camera
         {
             Logger.LogTrace("Detecting camera from {0} file system", cardInfo.DriveLetter);
 
-            string path = cardInfo.GetDcimPath();
+            var rootPath = cardInfo.GetRootPath();
+            var path = Path.Combine(rootPath, Directories.Images);
             if (!Directory.Exists(path))
                 return null;
 
