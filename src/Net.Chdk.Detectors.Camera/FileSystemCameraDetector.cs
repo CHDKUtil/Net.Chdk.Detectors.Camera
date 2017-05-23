@@ -29,6 +29,7 @@ namespace Net.Chdk.Detectors.Camera
                 return null;
 
             return Directory.EnumerateDirectories(path)
+                .Reverse()
                 .Select(GetCameraFromDirectory)
                 .FirstOrDefault(c => c != null);
         }
@@ -43,6 +44,7 @@ namespace Net.Chdk.Detectors.Camera
         private CameraInfo GetCameraFromDirectory(string dir, string pattern)
         {
             return Directory.EnumerateFiles(dir, pattern)
+                .Reverse()
                 .Select(GetCameraFromFile)
                 .FirstOrDefault(c => c != null);
         }
