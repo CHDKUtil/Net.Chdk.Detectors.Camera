@@ -79,10 +79,16 @@ namespace Net.Chdk.Detectors.Camera
             if (canon == null)
                 return null;
 
+            uint modelId;
+            canon.TryGetUInt32(CanonMakernoteDirectory.TagModelId, out modelId);
+
+            uint firmwareRevision;
+            canon.TryGetUInt32(CanonMakernoteDirectory.TagFirmwareRevision, out firmwareRevision);
+
             return new CanonInfo
             {
-                ModelId = canon.GetUInt32(CanonMakernoteDirectory.TagModelId),
-                FirmwareRevision = canon.GetUInt32(CanonMakernoteDirectory.TagFirmwareRevision)
+                ModelId = modelId,
+                FirmwareRevision = firmwareRevision
             };
         }
     }
