@@ -52,7 +52,9 @@ namespace Net.Chdk.Detectors.Camera
             try
             {
                 var cameraInfo = GetCamera(inputPath, loggerFactory);
+#if METADATA
                 cameraInfo.Version = new Version("1.0");
+#endif
                 Serialize(outputPath, cameraInfo, settings);
             }
             catch (Exception ex)

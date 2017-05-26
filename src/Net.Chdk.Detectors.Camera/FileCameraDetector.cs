@@ -17,7 +17,9 @@ namespace Net.Chdk.Detectors.Camera
 {
     public sealed class FileCameraDetector : IFileCameraDetector
     {
+#if METADATA
         private static Version Version => new Version("1.0");
+#endif
 
         private ILogger Logger { get; }
 
@@ -48,7 +50,9 @@ namespace Net.Chdk.Detectors.Camera
 
                 return new CameraInfo
                 {
+#if METADATA
                     Version = Version,
+#endif
                     Base = GetBase(metadata),
                     Canon = GetCanon(metadata),
                 };
