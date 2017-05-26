@@ -87,13 +87,31 @@ namespace Net.Chdk.Detectors.Camera
             canon.TryGetUInt32(CanonMakernoteDirectory.TagModelId, out modelId);
 
             uint firmwareRevision;
-            canon.TryGetUInt32(CanonMakernoteDirectory.TagFirmwareRevision, out firmwareRevision);
+            Version firmwareVersion = null;
+            if (!canon.TryGetUInt32(CanonMakernoteDirectory.TagFirmwareRevision, out firmwareRevision))
+                firmwareVersion = GetFirmwareVersion(canon);
 
             return new CanonInfo
             {
                 ModelId = modelId,
-                FirmwareRevision = firmwareRevision
+                FirmwareRevision = firmwareRevision,
+                FirmwareVersion = firmwareVersion
             };
+        }
+
+        private static Version GetFirmwareVersion(CanonMakernoteDirectory canon)
+        {
+            var str = canon.GetString(CanonMakernoteDirectory.TagCanonFirmwareVersion);
+            if (str == null)
+                return null;
+
+            str = str.TrimStart("Firmware Version ");
+            if (str == null)
+                return null;
+
+            Version firmwareVersion;
+            Version.TryParse(str, out firmwareVersion);
+            return firmwareVersion;
         }
     }
 }
