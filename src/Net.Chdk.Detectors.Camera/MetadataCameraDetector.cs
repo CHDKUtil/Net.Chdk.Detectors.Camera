@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
 using Net.Chdk.Model.Card;
+using Net.Chdk.Model.Software;
 using Net.Chdk.Validators;
 
 namespace Net.Chdk.Detectors.Camera
@@ -12,7 +13,7 @@ namespace Net.Chdk.Detectors.Camera
         {
         }
 
-        public CameraInfo GetCamera(CardInfo cardInfo)
+        public CameraInfo GetCamera(CardInfo cardInfo, SoftwareInfo softwareInfo)
         {
             Logger.LogTrace("Detecting camera from {0} metadata", cardInfo.DriveLetter);
 
