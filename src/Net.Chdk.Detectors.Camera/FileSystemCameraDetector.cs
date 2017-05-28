@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
 using Net.Chdk.Model.Card;
-using Net.Chdk.Model.Software;
 using System.IO;
 using System.Linq;
 
@@ -20,7 +19,7 @@ namespace Net.Chdk.Detectors.Camera
             FileCameraDetector = fileCameraDetector;
         }
 
-        public CameraInfo GetCamera(CardInfo cardInfo, SoftwareInfo softwareInfo)
+        public CameraInfo GetCamera(CardInfo cardInfo)
         {
             Logger.LogTrace("Detecting camera from {0} file system", cardInfo.DriveLetter);
 
