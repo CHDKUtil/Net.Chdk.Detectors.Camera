@@ -14,11 +14,11 @@ namespace Net.Chdk.Detectors.Camera
         {
         }
 
-        public CameraInfo GetCamera(CardInfo cardInfo)
+        public CameraInfo GetCamera(CardInfo cardInfo, IProgress<double> progress)
         {
             Logger.LogTrace("Detecting camera from {0} metadata", cardInfo.DriveLetter);
 
-            return GetValue(cardInfo);
+            return GetValue(cardInfo, progress);
         }
 
         protected override string FileName => Files.Metadata.Camera;

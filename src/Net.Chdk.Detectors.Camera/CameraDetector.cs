@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Camera;
 using Net.Chdk.Model.Card;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,12 +18,12 @@ namespace Net.Chdk.Detectors.Camera
             CameraDetectors = cameraDetectors;
         }
 
-        public CameraInfo GetCamera(CardInfo cardInfo)
+        public CameraInfo GetCamera(CardInfo cardInfo, IProgress<double> progress)
         {
             Logger.LogTrace("Detecting camera from {0}", cardInfo.DriveLetter);
 
             return CameraDetectors
-                .Select(d => d.GetCamera(cardInfo))
+                .Select(d => d.GetCamera(cardInfo, progress))
                 .FirstOrDefault(c => c != null);
         }
     }
