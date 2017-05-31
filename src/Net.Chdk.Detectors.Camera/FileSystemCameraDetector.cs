@@ -4,6 +4,7 @@ using Net.Chdk.Model.Card;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace Net.Chdk.Detectors.Camera
 {
@@ -20,7 +21,7 @@ namespace Net.Chdk.Detectors.Camera
             FileCameraDetector = fileCameraDetector;
         }
 
-        public CameraInfo GetCamera(CardInfo cardInfo, IProgress<double> progress)
+        public CameraInfo GetCamera(CardInfo cardInfo, IProgress<double> progress, CancellationToken token)
         {
             Logger.LogTrace("Detecting camera from {0} file system", cardInfo.DriveLetter);
 
@@ -28,6 +29,8 @@ namespace Net.Chdk.Detectors.Camera
             var path = Path.Combine(rootPath, Directories.Images);
             if (!Directory.Exists(path))
                 return null;
+
+            token.ThrowIfCancellationRequested();
 
             var dirs = Directory.EnumerateDirectories(path)
                 .Reverse();
@@ -38,6 +41,8 @@ namespace Net.Chdk.Detectors.Camera
 
             foreach (var dir in dirs)
             {
+                token.ThrowIfCancellationRequested();
+
                 var camera = GetCameraFromDirectory(dir);
                 if (camera != null)
                     return camera;
