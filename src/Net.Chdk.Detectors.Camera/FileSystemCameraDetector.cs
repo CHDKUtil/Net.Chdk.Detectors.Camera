@@ -10,7 +10,14 @@ namespace Net.Chdk.Detectors.Camera
 {
     public sealed class FileSystemCameraDetector : IInnerCameraDetector
     {
-        public static string[] Patterns => new[] { "IMG_????.JPG", "_MG_????.JPG", "MVI_????.THM" };
+        public static string[] Patterns => new[]
+        {
+            "IMG_????.JPG",
+            "_MG_????.JPG",
+            "MVI_????.THM",
+            "IMG_????.CR2",
+            "_MG_????.CR2",
+        };
 
         private ILogger Logger { get; }
         private IFileCameraDetector FileCameraDetector { get; }
