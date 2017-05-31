@@ -62,6 +62,11 @@ namespace Net.Chdk.Detectors.Camera
                 Logger.LogError(0, ex, "Error reading metadata");
                 throw;
             }
+            catch (ImageProcessingException ex)
+            {
+                Logger.LogError(0, ex, "Error processing metadata");
+                throw;
+            }
         }
 
         private BaseInfo GetBase(MetadataCollection metadata)
