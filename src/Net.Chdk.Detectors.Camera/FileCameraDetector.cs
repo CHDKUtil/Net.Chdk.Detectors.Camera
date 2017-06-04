@@ -60,12 +60,12 @@ namespace Net.Chdk.Detectors.Camera
             catch (MetadataException ex)
             {
                 Logger.LogError(0, ex, "Error reading metadata");
-                throw;
+                throw new CameraDetectionException(ex);
             }
             catch (ImageProcessingException ex)
             {
                 Logger.LogError(0, ex, "Error processing metadata");
-                throw;
+                throw new CameraDetectionException(ex);
             }
         }
 
