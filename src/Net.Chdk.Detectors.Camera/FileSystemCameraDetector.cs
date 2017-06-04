@@ -78,7 +78,14 @@ namespace Net.Chdk.Detectors.Camera
 
         private CameraInfo GetCameraFromFile(string file)
         {
-            return FileCameraDetector.GetCamera(file);
+            try
+            {
+                return FileCameraDetector.GetCamera(file);
+            }
+            catch (CameraDetectionException)
+            {
+                return null;
+            }
         }
     }
 }
