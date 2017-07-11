@@ -75,6 +75,14 @@
       <HintPath>..\Net.Chdk.Detectors.Camera\packages\Microsoft.Extensions.Primitives.1.1.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Net.Chdk.Json, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Net.Chdk.Detectors.Camera\packages\Net.Chdk.Json.0.1.0-alpha\lib\netstandard1.0\Net.Chdk.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Net.Chdk.Model.Camera, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Net.Chdk.Detectors.Camera\packages\Net.Chdk.Model.Camera.0.1.0-alpha\lib\netstandard1.0\Net.Chdk.Model.Camera.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\Net.Chdk.Detectors.Camera\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -108,10 +116,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Net.Chdk.Model.Camera\src\Net.Chdk.Model.Camera\Net.Chdk.Model.Camera.csproj">
-      <Project>{66b0906b-ff63-4cfc-8ea7-a472333aecb1}</Project>
-      <Name>Net.Chdk.Model.Camera</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Net.Chdk.Detectors.Camera\Net.Chdk.Detectors.Camera.csproj">
       <Project>{06314ab6-5a42-4883-9f5d-f76ac49da680}</Project>
       <Name>Net.Chdk.Detectors.Camera</Name>
